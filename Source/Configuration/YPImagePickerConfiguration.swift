@@ -150,6 +150,9 @@ public struct YPConfigLibrary {
     
     public var options: PHFetchOptions?
 
+    /// Validates a library item before it is selected. Identifiers contain the current selection.
+    public var selectionValidator: ((PHAsset, [String]) -> Bool)?
+
     /// Set this to true if you want to force the library output to be a squared image. Defaults to false.
     public var onlySquare = false
     

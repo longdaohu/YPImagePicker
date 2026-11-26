@@ -221,6 +221,7 @@ extension YPLibraryVC: UICollectionViewDelegate {
     
     public func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         guard isProcessing == false else { return false }
+        guard !isInSelectionPool(indexPath: indexPath) else { return true }
         guard let validator = YPConfig.library.selectionValidator else { return true }
         guard let asset = mediaManager.getAsset(at: indexPath.item) else { return false }
 
